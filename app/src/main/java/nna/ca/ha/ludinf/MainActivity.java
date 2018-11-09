@@ -1,11 +1,8 @@
 package nna.ca.ha.ludinf;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,7 +12,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import nna.ca.ha.ludinf.view.TestFragment;
+import nna.ca.ha.ludinf.view.AlarmFragment;
+import nna.ca.ha.ludinf.view.DiaryFragment;
+import nna.ca.ha.ludinf.view.DictionaryFragment;
+import nna.ca.ha.ludinf.view.InfoFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -78,22 +77,18 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-
-        if (id == R.id.nav_camera) {
-            Fragment fragment = new TestFragment();
-            ft.replace(R.id.content_main, fragment);
-            ft.commit();
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        Fragment fragment = null;
+        if (id == R.id.nav_dictionary) {
+            fragment = new DictionaryFragment();
+        } else if (id == R.id.nav_info) {
+            fragment = new InfoFragment();
+        } else if (id == R.id.nav_alarm) {
+            fragment = new AlarmFragment();
+        } else if (id == R.id.nav_diary) {
+            fragment = new DiaryFragment();
         }
+        ft.replace(R.id.content_main, fragment);
+        ft.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
