@@ -56,7 +56,7 @@ public class DiaryFragment extends Fragment {
         Log.d(Tag, "CardViewClick");
         Fragment fragment = new WriteDiaryFragment();
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         fragmentTransaction.replace(R.id.content_main , fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();

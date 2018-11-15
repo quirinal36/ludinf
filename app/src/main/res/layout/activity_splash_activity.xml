@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A7F3DD"
+    android:background="#000000"
     tools:context=".splash_activity">
 
-
+    <VideoView
+        android:id="@+id/splash_video_view"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_height="match_parent" />
 </FrameLayout>
